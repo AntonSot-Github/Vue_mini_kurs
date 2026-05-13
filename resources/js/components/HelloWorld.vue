@@ -2,6 +2,7 @@
 
     import MyFirstComponent from './MyFirstComponent.vue';
     import Counter from './Counter.vue';
+    import LampState from './LampState.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -26,6 +27,9 @@
     <h2>Мини-задание 3</h2>
     <Counter />
 
+    <h2>Мини-задание 4</h2>
+    <LampState />
+
 </template>
 
 <style>
@@ -38,6 +42,6 @@
 
     h2 {
         color: darkblue;
-        padding-bottom: .5rem;
+        padding-bottom: 1rem;
     }
 </style>
