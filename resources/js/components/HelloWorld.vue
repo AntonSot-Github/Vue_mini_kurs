@@ -3,6 +3,7 @@
     import MyFirstComponent from './MyFirstComponent.vue';
     import Counter from './Counter.vue';
     import LampState from './LampState.vue';
+    import UserForm from './UserForm.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -21,14 +22,25 @@
 
     <h1>Привет, {{ name }}!</h1>
 
+    <hr>
     <h2>Мини-задание 2</h2>
     <MyFirstComponent />
 
+    <hr>
     <h2>Мини-задание 3</h2>
     <Counter />
 
+    <hr>
     <h2>Мини-задание 4</h2>
     <LampState />
+    
+    <hr>
+    <h2>Мини-задание 5</h2>
+    <UserForm />
+
+    <hr>
+
+
 
 </template>
 
