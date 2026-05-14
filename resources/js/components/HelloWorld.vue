@@ -4,6 +4,8 @@
     import Counter from './Counter.vue';
     import LampState from './LampState.vue';
     import UserForm from './UserForm.vue';
+    import LoginState from './UserStatus.vue';
+    import MovieList from './MovieList.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -22,23 +24,31 @@
 
     <h1>Привет, {{ name }}!</h1>
 
-    <hr>
+    <hr><br>
     <h2>Мини-задание 2</h2>
     <MyFirstComponent />
 
-    <hr>
+    <hr><br>
     <h2>Мини-задание 3</h2>
     <Counter />
 
-    <hr>
+    <hr><br>
     <h2>Мини-задание 4</h2>
     <LampState />
     
-    <hr>
+    <br><hr><br>
     <h2>Мини-задание 5</h2>
     <UserForm />
 
-    <hr>
+    <hr><br>
+    <h2>Мини-задание 5</h2>
+    <LoginState />
+
+    <br><hr><br>
+    <h2>Мини-задание 6: v-for — рендер списков</h2>
+    <MovieList />
+
+    <br><hr><br>
 
 
 
@@ -46,8 +56,9 @@
 
 <style>
     h1{
-        font-size: large;
+        font-size: 32px;
         font-weight: bold;
+        margin-top: 1rem;
         margin-bottom: 1rem;
         text-align: center;
     }

@@ -31,5 +31,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-bottom: 1rem;
         }
 </style>
