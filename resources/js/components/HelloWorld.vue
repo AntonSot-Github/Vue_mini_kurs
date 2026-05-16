@@ -6,6 +6,7 @@
     import UserForm from './UserForm.vue';
     import LoginState from './UserStatus.vue';
     import MovieList from './MovieList.vue';
+    import BookList from './BookList.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -49,7 +50,12 @@
     <MovieList />
 
     <br><hr><br>
-    <h2>Мини-задание №7: </h2>
+    <h2>Мини-задание №8: Props — передача данных между компонентами</h2>
+    <BookList />
+
+    <br><hr><br>
+
+
 
 
 </template>
