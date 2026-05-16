@@ -30,13 +30,27 @@
         },
     ]);
 
+    function delBook(bookID){
+        books.value = books.value.filter(book => {
+            return book.id != bookID;
+        });
+    }
+
+    function changeStatus(bookID){
+        const book = books.value.find(b => b.id === bookID);
+
+        book.read = !book.read;
+    }
 </script>
 <template>
 
     <ul>
-        <li v-for="book in books">
+        <li v-for="book in books" :key="book.id">
             <div class="bookCard">
                 <BookCard
+                    :bookID="book.id"
+                    @delBook="delBook"
+                    @changeStatus="changeStatus"
                     :title=book.title
                     :author=book.author 
                     :year=book.year
