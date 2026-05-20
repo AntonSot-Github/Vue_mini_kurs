@@ -50,7 +50,7 @@
     <MovieList />
 
     <br><hr><br>
-    <h2>Мини-задание №8-9: Props — передача данных между компонентами / Emits — события между компонентами</h2>
+    <h2>Мини-задание №8-9-10: Props — передача данных между компонентами / Emits — события между компонентами / computed — вычисляемые свойства</h2>
     <BookList />
 
     <br><hr><br>
@@ -69,5 +69,11 @@
     h2 {
         color: darkblue;
         padding-bottom: 1rem;
+    }
+    h3{
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-decoration: underline;
     }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
     import BookCard from './BookCard.vue';
 
     const books = ref([
@@ -28,6 +28,22 @@
             rating: 7,
             read: false,
         },
+        {
+            id: 4,
+            title: 'Where is his dog running',
+            author: 'Ostin',
+            year: 2014,
+            rating: 9,
+            read: true,
+        },
+        {
+            id: 5,
+            title: 'Sing songs',
+            author: 'Owen',
+            year: 2017,
+            rating: 2,
+            read: true,
+        },
     ]);
 
     function delBook(bookID){
@@ -41,6 +57,30 @@
 
         book.read = !book.read;
     }
+
+    //Read books
+    const readBooks = computed(() => {
+        return books.value.filter(book => {
+            return book.read;
+        });
+    });
+
+    //Books with rating > 8
+    const topBooks = computed(() => {
+        return books.value.filter(book => {
+            return book.rating > 8;
+        });
+    });
+
+    //Search book
+    let bookSearch = ref('');
+    const bookFounded = computed(() => {
+        return books.value.filter(book => {
+            // Приводим всё к нижнему регистру, чтобы поиск не зависел от больших/маленьких букв
+            return book.title.toLowerCase().includes(bookSearch.value.toLowerCase());
+        });
+    });
+
 </script>
 <template>
 
@@ -61,6 +101,39 @@
         </li>
     </ul>
 
+    <h3>Read books</h3>
+    <ul>
+        <li v-for="book in readBooks" :key="book.id">
+            <div class="bookCard">
+                <p><i>{{ book.title }}</i></p>
+            </div>
+        </li>
+    </ul>
+
+    <h3>Top books with rating > 8</h3>
+    <ul>
+        <li v-for="book in topBooks" :key="book.id">
+            <div class="bookCard">            
+                <p>
+                    {{ book.title }}: rating - {{ book.rating }}
+                    <span v-if="book.rating === 10">🔥</span>
+                </p>
+            </div>
+        </li>
+    </ul>
+
+    <h3>Search book</h3>
+    <div class="inputContainer">
+        <input type="text" placeholder="Search" v-model="bookSearch">
+    </div>
+    <ul v-if="bookSearch !== ''">            
+        <li v-for="book in bookFounded" :key="book.id">
+            <div class="bookCard">
+                {{ book.title }}
+            </div>
+        </li>
+    </ul>
+    
 </template>
 <style scoped>
     .bookCard{
@@ -72,5 +145,19 @@
         border-radius: 10px;
         background-color: rgb(110, 214, 115);
         padding: .5rem;
+    }
+    input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: all 0.3s;
+        margin-bottom: .5rem;
+    }
+    .inputContainer{
+        display: flex;
+        justify-content: center;
+    }
+    li{
+        list-style: none;
     }
 </style>
