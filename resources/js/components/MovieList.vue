@@ -1,6 +1,6 @@
 <script setup>
 
-    import { ref } from 'vue';
+    import { ref, watch } from 'vue';
 
     const films = ref([
         {
@@ -44,6 +44,7 @@
             film.raiting = 1;
         } 
     }
+
 
 </script>
 <template>

@@ -1,6 +1,6 @@
 <script setup>
 
-    import { ref, computed } from 'vue';
+    import { ref, computed, watch } from 'vue';
     import BookCard from './BookCard.vue';
 
     const books = ref([
@@ -81,6 +81,31 @@
         });
     });
 
+    //Serching book console
+    const search = ref('');
+
+    watch(search, (newValue, oldValue) => {
+        console.log('New input: ', newValue);
+        console.log('Old input: ', oldValue);
+        
+    });
+
+    //Dark mode
+    const isDark = ref(false);
+    watch(isDark, (lightModeOff) => {
+        if(lightModeOff){
+            console.log('Light-mode is on');
+        } else {
+            console.log('Dark-mode is on');
+        }
+    })
+
+    //Input notes
+    const note = ref('');
+    watch(note, (autosave) => {
+        console.log('note is saved');
+    });
+
 </script>
 <template>
 
@@ -126,14 +151,29 @@
     <div class="inputContainer">
         <input type="text" placeholder="Search" v-model="bookSearch">
     </div>
-    <ul v-if="bookSearch !== ''">            
+    <ul v-if="bookSearch !== ''">
         <li v-for="book in bookFounded" :key="book.id">
             <div class="bookCard">
                 {{ book.title }}
             </div>
         </li>
     </ul>
+
+    <h3>Search book console</h3>
+    <div class="inputContainer">
+        <input type="text" v-model="search" placeholder="search-console">
+    </div>
+
+    <h3>Dark mode console</h3>
+    <div class="inputContainer">
+        <input type="checkbox" v-model="isDark" id="mode">
+        <label for="mode">Theme-mode</label>
+    </div>
     
+    <h3>Text-area notes console</h3>
+    <div class="inputContainer">
+        <input type="textarea" v-model="note">
+    </div>
 </template>
 <style scoped>
     .bookCard{
@@ -151,11 +191,14 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         transition: all 0.3s;
-        margin-bottom: .5rem;
+        margin-bottom: auto;
+        margin-top: auto;
+        margin-right: .5rem;
     }
     .inputContainer{
         display: flex;
         justify-content: center;
+        margin-bottom: 1rem;
     }
     li{
         list-style: none;
