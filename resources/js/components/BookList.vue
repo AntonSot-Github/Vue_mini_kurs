@@ -32,7 +32,7 @@
 
     function delBook(bookID){
         books.value = books.value.filter(book => {
-            return book.id != bookID;
+            return book.id !== bookID;
         });
     }
 
