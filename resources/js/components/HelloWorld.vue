@@ -7,6 +7,7 @@
     import LoginState from './UserStatus.vue';
     import MovieList from './MovieList.vue';
     import BookList from './BookList.vue';
+    import ApiCars from './ApiCars.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -52,6 +53,10 @@
     <br><hr><br>
     <h2>Мини-задание №8-9-10-11: Props — передача данных между компонентами / Emits — события между компонентами / computed — вычисляемые свойства / watch — слежение за изменениями</h2>
     <BookList />
+
+    <br><hr><br>
+    <h2>Мини-задание №12: Работа с API </h2>
+    <ApiCars />
 
     <br><hr><br>
 
