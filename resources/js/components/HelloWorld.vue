@@ -8,6 +8,7 @@
     import MovieList from './MovieList.vue';
     import BookList from './BookList.vue';
     import ApiCars from './ApiCars.vue';
+    import MovieCreateForm from './MovieCreateForm.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -57,6 +58,10 @@
     <br><hr><br>
     <h2>Мини-задание №12: Работа с API </h2>
     <ApiCars />
+
+    <br><hr><br>
+    <h2>Мини-задание №13: Формы во Вью</h2>
+    <MovieCreateForm />
 
     <br><hr><br>
 
