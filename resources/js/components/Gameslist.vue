@@ -1,6 +1,28 @@
 <script setup>
 
     import { ref } from 'vue';
+    import GamePage from './GamePage.vue';
+    import GameCard from './GameCard.vue';
+
+    defineProps({
+        games: Array
+    });
+
+    defineEmits(['plusRating']);
+
 
 
 </script>
+<template>
+    <div>
+        <ul>
+            <li v-for="game in games" :key="game.id">
+                <GameCard 
+                    :game="game"
+                    @plusRating="(id, digit) => $emit('plusRating', id, digit)"
+                />
+
+            </li>
+        </ul>
+    </div>
+</template>

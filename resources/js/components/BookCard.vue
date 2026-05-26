@@ -50,8 +50,6 @@
             </button>
         </div>
 
-
-
     </div>
 
 </template>

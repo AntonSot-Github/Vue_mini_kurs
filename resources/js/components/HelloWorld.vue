@@ -9,6 +9,7 @@
     import BookList from './BookList.vue';
     import ApiCars from './ApiCars.vue';
     import MovieCreateForm from './MovieCreateForm.vue';
+    import GamePage from './GamePage.vue';
 
     // обычная переменная JavaScript
     const name = "SomeOne";
@@ -62,6 +63,10 @@
     <br><hr><br>
     <h2>Мини-задание №13: Формы во Вью</h2>
     <MovieCreateForm />
+
+    <br><hr><br>
+    <h2>Мини-задание №14: </h2>
+    <GamePage />
 
     <br><hr><br>
 
