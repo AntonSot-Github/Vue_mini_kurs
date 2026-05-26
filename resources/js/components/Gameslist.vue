@@ -8,7 +8,7 @@
         games: Array
     });
 
-    defineEmits(['plusRating']);
+    defineEmits(['changeRating']);
 
 
 
@@ -19,7 +19,7 @@
             <li v-for="game in games" :key="game.id">
                 <GameCard 
                     :game="game"
-                    @plusRating="(id, digit) => $emit('plusRating', id, digit)"
+                    @changeRating="(id, digit) => $emit('changeRating', id, digit)"
                 />
 
             </li>

@@ -41,16 +41,12 @@
         },
     ]);
 
-    function plusRating(gameId, digit){
+    function changeRating(gameId, digit){
         const game = games.value.find(g => g.id === gameId);
 
-        if(game && game.rating !== 0 && game.rating !== 11){
-            game.rating = game.rating + digit;
-        } if (game && game.rating === 11 && digit > 0) {
-            game.rating = 10; 
-        } if (game && game.rating === 0 && digit < 0){
-            game.rating = 1;
-        }
+        if (game) {                
+                game.rating = Math.min(10, Math.max(1, game.rating + digit));
+            }
     }
 
 </script>
@@ -58,7 +54,7 @@
     <div>
         <GamesList 
             :games="games"
-            @plusRating="plusRating"
+            @changeRating="changeRating"
         />
     </div>
 </template>

@@ -38,11 +38,15 @@
         const film = films.value.find(f => f.id === filmId);
 
         /* Если фильм найден и его рейтинг больше ноля */
-        if(film && film.raiting !== 0){
-            film.raiting = film.raiting + digit;
-        } if (film && film.raiting === 0) {
-            film.raiting = 1;
-        } 
+        if(film){
+            film.raiting += digit;
+            if(film.raiting < 1){
+                film.raiting = 1;
+            } else if (film.raiting > 10) {
+                film.raiting = 10;
+            } 
+        }
+
     }
 
 

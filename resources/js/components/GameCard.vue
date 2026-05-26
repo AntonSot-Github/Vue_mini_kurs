@@ -5,7 +5,7 @@
     });
 
     defineEmits([
-        'plusRating'
+        'changeRating'
     ]);
 
 
@@ -21,13 +21,14 @@
         <div class="ratingContainer">
             <p>Game rating: {{ game.rating }}</p>
             <div>
-                <button @click="$emit('plusRating', game.id, 1)">
+                <button @click="$emit('changeRating', game.id, 1)">
                     +
                 </button>
-                <button @click="$emit('plusRating', game.id, -1)">
+                <button @click="$emit('changeRating', game.id, -1)">
                     -
                 </button>
             </div>
+
 
         </div>
         
