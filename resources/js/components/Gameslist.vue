@@ -8,7 +8,7 @@
         games: Array
     });
 
-    defineEmits(['changeRating']);
+    defineEmits(['changeRating', 'completeStatus']);
 
 
 
@@ -20,6 +20,7 @@
                 <GameCard 
                     :game="game"
                     @changeRating="(id, digit) => $emit('changeRating', id, digit)"
+                    @completeStatus="(id) => $emit('completeStatus', id)"
                 />
 
             </li>

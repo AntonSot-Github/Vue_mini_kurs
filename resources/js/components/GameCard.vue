@@ -1,14 +1,14 @@
 <script setup>
 
-    defineProps({
+    const props = defineProps({
         game: Object
     });
 
     defineEmits([
-        'changeRating'
+        'changeRating',
+        'completeStatus',
+
     ]);
-
-
 
 </script>
 <template>
@@ -17,7 +17,13 @@
         <h3>{{ game.title }}</h3>
         <hr>
         <p>Year of release : {{ game.year }}</p>
-        <p>Completed the game: {{ game.completed }}</p>
+
+        <p>Completed the game: 
+            <span v-if="game.completed">✅ Game completed</span>
+            <span v-else>❌ Game is not completed</span>
+        </p>
+
+        <!--Rating -->
         <div class="ratingContainer">
             <p>Game rating: {{ game.rating }}</p>
             <div>
@@ -28,10 +34,14 @@
                     -
                 </button>
             </div>
-
-
         </div>
         
+        <!-- Buttons Container -->
+         <div class="buttonsContainer">
+            <button @click="$emit('completeStatus', game.id)">
+                Completed
+            </button>
+         </div>
     </div>
 
 </template>
@@ -55,6 +65,7 @@
         border-radius: 15px;
         margin-bottom: .5rem;
         background-color: yellow;
+
     }
     .ratingContainer{
         display: flex;

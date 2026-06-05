@@ -49,12 +49,21 @@
             }
     }
 
+    function completeStatus(gameId){
+        const game = games.value.find(g => g.id === gameId);
+
+        if(game){
+            game.completed = !game.completed;
+        }
+    }
+
 </script>
 <template>
     <div>
         <GamesList 
             :games="games"
             @changeRating="changeRating"
+            @completeStatus="completeStatus"
         />
     </div>
 </template>
