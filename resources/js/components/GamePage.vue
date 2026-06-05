@@ -57,6 +57,12 @@
         }
     }
 
+    function deleteGame(gameId){
+        games.value = games.value.filter(game => {
+            return game.id !== gameId;
+        });
+    }
+
 </script>
 <template>
     <div>
@@ -64,6 +70,7 @@
             :games="games"
             @changeRating="changeRating"
             @completeStatus="completeStatus"
+            @deleteGame="deleteGame"
         />
     </div>
 </template>

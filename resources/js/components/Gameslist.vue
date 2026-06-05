@@ -21,6 +21,7 @@
                     :game="game"
                     @changeRating="(id, digit) => $emit('changeRating', id, digit)"
                     @completeStatus="(id) => $emit('completeStatus', id)"
+                    @deleteGame="(id) => $emit('deleteGame', id)"
                 />
 
             </li>

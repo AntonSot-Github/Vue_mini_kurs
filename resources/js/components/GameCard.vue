@@ -7,7 +7,7 @@
     defineEmits([
         'changeRating',
         'completeStatus',
-
+        'deleteGame',
     ]);
 
 </script>
@@ -38,9 +38,10 @@
         
         <!-- Buttons Container -->
          <div class="buttonsContainer">
-            <button @click="$emit('completeStatus', game.id)">
+            <button @click="$emit('completeStatus', game.id)" class="butCompleted">
                 Completed
             </button>
+            <button @click="$emit('deleteGame', game.id)" class="butDel">Delete Game</button>
          </div>
     </div>
 
@@ -65,11 +66,21 @@
         border-radius: 15px;
         margin-bottom: .5rem;
         background-color: yellow;
-
+    }
+    .butDel{
+        background-color: rgba(255, 23, 23, 0.808);
+    }
+    .butCompleted{
+        background-color: aquamarine;
     }
     .ratingContainer{
         display: flex;
         align-items: center;
+        justify-content: space-between;
+    }
+    .buttonsContainer{
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
     }
 </style>
