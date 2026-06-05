@@ -8,7 +8,7 @@
         watched: false,
         genre: '',
         description: '',
-    })
+    });
 
     function submitForm(){
         // Здесь мы получаем чистые данные из формы

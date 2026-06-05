@@ -2,6 +2,7 @@
 
     import { ref } from 'vue';
     import GamesList from './GamesList.vue';
+    import GameCreateForm from './GameCreateForm.vue';
 
     const games = ref([
         {
@@ -63,6 +64,22 @@
         });
     }
 
+    // Внутри <script setup> в GamePage.vue
+    function submitForm(newGameData) {
+        
+        // 1. Добавляем к прилетевшему объекту уникальный ID
+        if (games.value.length > 0) {
+            // Вытаскиваем все ID, находим максимальный и плюсуем 1
+            const maxId = Math.max(...games.value.map(game => game.id));
+            newGameData.id = maxId + 1;
+        } else {
+            newGameData.id = 1; // Если массив вдруг пустой, стартуем с 1
+        }
+
+        // 2. Добавляем объект в реактивный массив через .value
+        games.value.push(newGameData);
+    }
+
 </script>
 <template>
     <div>
@@ -71,6 +88,11 @@
             @changeRating="changeRating"
             @completeStatus="completeStatus"
             @deleteGame="deleteGame"
+        />
+    </div>
+    <div>
+        <GameCreateForm 
+            @submitForm="submitForm"
         />
     </div>
 </template>
