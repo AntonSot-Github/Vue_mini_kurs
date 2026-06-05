@@ -1,8 +1,9 @@
 <script setup>
 
-    import { ref } from 'vue';
+    import { computed, ref } from 'vue';
     import GamesList from './GamesList.vue';
     import GameCreateForm from './GameCreateForm.vue';
+    import GameStats from './GameStats.vue';
 
     const games = ref([
         {
@@ -66,7 +67,7 @@
 
     // Внутри <script setup> в GamePage.vue
     function submitForm(newGameData) {
-        
+
         // 1. Добавляем к прилетевшему объекту уникальный ID
         if (games.value.length > 0) {
             // Вытаскиваем все ID, находим максимальный и плюсуем 1
@@ -79,6 +80,26 @@
         // 2. Добавляем объект в реактивный массив через .value
         games.value.push(newGameData);
     }
+
+    //Quentity of games
+    const numGames = computed(() => {
+        return games.value.length;
+    });
+
+    //Number of completed games
+    const compGames = computed(() => {
+        return games.value.filter(game => {
+            return game.completed;
+        }).length;
+    });
+
+    //Game with max rating
+    const bestGames = computed(() => {
+        const topRating = games.value.filter(game => {
+            return game.rating >= 8;
+        });
+        return topRating.map(game => game.title);
+    });
 
 </script>
 <template>
@@ -94,5 +115,13 @@
         <GameCreateForm 
             @submitForm="submitForm"
         />
+    </div>
+    <div>
+        <GameStats 
+            :numGames="numGames"
+            :compGames="compGames"
+            :bestGames="bestGames"
+        />
+        
     </div>
 </template>

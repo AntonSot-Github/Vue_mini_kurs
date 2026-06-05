@@ -8,9 +8,10 @@
         games: Array
     });
 
-    defineEmits(['changeRating', 'completeStatus']);
-
-
+    defineEmits(['changeRating', 
+        'completeStatus',
+        'deleteGame',
+    ]);
 
 </script>
 <template>
